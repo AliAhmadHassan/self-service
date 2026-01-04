@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Bootstrap Case</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</head>
+<body>
+    @model PortalCliente.Web.Models.Cliente
+
+    @{
+        ViewBag.Title = "Index";
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+
+    <div class="container">
+        @*<ul class="nav nav-tabs">
+            <li class="active"><a href="/Principal/Menu?MenuId=1">Opção 1</a></li>
+            <li><a href="#">Opção 2</a></li>
+            <li><a href="#">Opção 3</a></li>
+            <li><a href="#">Opção 4</a></li>
+        </ul>*@
+        @using (Html.BeginForm())
+            {
+            @Html.AntiForgeryToken()
+
+
+            @Html.Action("Index", "DetalhesDebito")
+
+            <div class="principalPanelProposta">
+                Veja quais das opções abaixo se encaixa em seu orçamento, escolha a melhor data de pagamento e aproveite!
+            </div>
+
+            <h3>Proposta - Opções</h3>
+            @Html.Action("Index", "Proposta")
+
+            <h3>Data de Pagamento</h3>
+                @Html.TextBox("dtPgto", DateTime.Today.ToString("dd/MM/yyyy"))<br />
+                @ViewBag.ErroData
+
+                <h3>Tipo de Arquivo</h3>
+                @Html.RadioButton("opcaoArquivo", 1, true) <span>PDF</span><br />
+                //@Html.RadioButton("opcaoArquivo", 2) <span>Imagem (JPG)</span>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Gerar Boleto" class="btn btn-default" />
+                        <br />
+                        @ViewBag.Erro
+                    </div>
+                </div>
+        }
+        @section Scripts {
+            @Scripts.Render("~/bundles/jqueryval")
+        }
+    </div>
+
+</body>
+</html>

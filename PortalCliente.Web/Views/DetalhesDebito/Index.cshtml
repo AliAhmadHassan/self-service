@@ -1,0 +1,47 @@
+﻿@model IEnumerable<PortalCliente.Web.Models.DetalhesDebito>
+
+
+<div class="detalheDebitoPanelTitulo">
+    @(((PortalCliente.Web.Models.Cliente)Session["clienteModel"]).GetFirstName()), sua dívida totaliza @(Model.Sum(c=>c.Valor).ToString("C2")) conforme detalhes abaixo:
+</div>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Contrato)
+        </th>
+        @if (!string.IsNullOrEmpty(Model.FirstOrDefault().Produto))
+        {
+            <th>
+                @Html.DisplayNameFor(model => model.Produto)
+            </th>
+        }
+        <th>
+            @Html.DisplayNameFor(model => model.Vencimento)
+        </th>
+        <th style="text-align:right;">
+            @Html.DisplayNameFor(model => model.Valor)
+        </th>
+    </tr>
+
+@foreach (var item in Model)
+{
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Contrato)
+        </td>
+        @if (!string.IsNullOrEmpty(Model.FirstOrDefault().Produto))
+        {
+            <td>
+                @Html.DisplayFor(modelItem => item.Produto)
+            </td>
+        }
+        <td>
+            @(item.Vencimento.ToString("dd/MM/yyyy"))
+        </td>
+        <td style="text-align:right;">
+            @(item.Valor.ToString("C2"))
+        </td>
+    </tr>
+}
+</table>

@@ -1,0 +1,201 @@
+﻿@model IEnumerable<PortalCliente.Web.Models.SolicitacaoRetorno>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .entire-menu {
+        position: absolute;
+        margin-left: -5%;
+        margin-top: -40px;
+        width: 100%;
+    }
+
+    .hamburguer {
+        width: 20px;
+        height: 20px;
+        display: block;
+        position: relative;
+        background: none;
+        margin: 0 0 10px 0;
+    }
+
+        .hamburguer:after, .hamburguer:before, .hamburguer span, .hamburguer label {
+            content: ' ';
+            display: block;
+            width: 100%;
+            height: 4px;
+            background: black;
+            left: 0;
+            position: absolute;
+            -webkit-transition: all 300ms ease-in-out;
+            transition: all 300ms ease-in-out;
+        }
+
+        .hamburguer:before {
+            top: 0;
+        }
+
+        .hamburguer:after {
+            bottom: 0;
+        }
+
+        .hamburguer:focus {
+            outline: none;
+        }
+
+        .hamburguer label {
+            width: 100%;
+            height: 100%;
+            background: none;
+            cursor: pointer;
+            z-index: 1000;
+        }
+
+        .hamburguer span {
+            top: 8px;
+        }
+
+    #change-hamburguer {
+        display: none;
+    }
+
+        #change-hamburguer:checked ~ .hamburguer:before, #change-hamburguer:checked ~ .hamburguer:after {
+            top: 10px;
+            margin-top: -10%;
+        }
+
+        #change-hamburguer:checked ~ .hamburguer:before {
+            -ms-transform: rotate(-45deg);
+            -webkit-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+        }
+
+        #change-hamburguer:checked ~ .hamburguer:after {
+            -ms-transform: rotate(45deg);
+            -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+        }
+
+        #change-hamburguer:checked ~ .hamburguer span {
+            opacity: 0;
+        }
+
+        #change-hamburguer:checked ~ .menu {
+            max-height: 200px;
+        }
+
+    .menu {
+        max-height: 0;
+        height: auto;
+        background: #000;
+        -webkit-transition: all 300ms ease-in-out;
+        transition: all 300ms ease-in-out;
+        overflow: hidden;
+        font-family: sans-serif;
+        font-weight: 400;
+        font-size: 13px;
+        width: 15%;
+    }
+
+        .menu a {
+            text-decoration: none;
+            color: #fff;
+            padding: 5px 10px;
+            display: block;
+            text-transform: uppercase;
+            border-left: 5px solid #000;
+        }
+
+            .menu a:hover {
+                border-left: 5px solid #e57373;
+                color: #e57373;
+                background: #222;
+            }
+</style>
+<div class="entire-menu">
+    <input type="checkbox" id="change-hamburguer" />
+    <a class="hamburguer" href="#">
+        <span></span>
+        <label for="change-hamburguer"></label>
+    </a>
+    <div class="menu">
+        <a href="../Lote">Lote</a>
+        <a href="../Log">Log</a>
+        <a href="../Mailling">Mailling</a>
+        <a href="../Relatorio">Relatorio</a>
+        <a href="../SolicitacaoRetorno">Solicitação Retorno</a>
+    </div>
+</div>
+
+<br />
+<h2>Retornar Contato</h2>
+
+
+<div style="display:table; width:100%; text-align:left">
+    <div style="display:table-row; width:100%; font-weight:bold">
+        <div style="display:table-cell; width:21%">
+            Nome
+        </div>
+        <div style="display:table-cell; width:14%">
+            CPF/CNPJ
+        </div>
+        <div style="display:table-cell; width:14%">
+            Data
+        </div>
+        <div style="display:table-cell; width:5%; text-align:right">
+            DDD
+        </div>
+        <div style="display:table-cell; width:18%; text-align:right">
+            Numero do Telefone
+        </div>
+        <div style="display:table-cell; width:10%; text-align:right">
+            Hora
+        </div>
+        <div style="display:table-cell; width:10%; text-align:right">
+
+        </div>
+        <div style="display:table-cell; width:25%; text-align:right">
+
+        </div>
+    </div>
+</div>
+
+@foreach (var item in Model)
+{
+    using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div style="display:table; width:100%; text-align:left">
+            <div style="display:table-row; width:100%; ">
+                <div style="display:table-cell; width:21%">
+                    @(item.Nome)
+                </div>
+                <div style="display:table-cell; width:14%">
+                    @(item.CPF_CNPJ)
+                </div>
+                <div style="display:table-cell; width:14%">
+                    @(item.Data)
+                </div>
+                <div style="display:table-cell; width:5%; text-align:right">
+                    @(item.DDD)
+                </div>
+                <div style="display:table-cell; width:18%; text-align:right">
+                    @(item.NumeroTelefone)
+                </div>
+                <div style="display:table-cell; width:10%; text-align:right">
+                    @(item.Horario.ToString("00")) hs
+                </div>
+                <div style="display:table-cell; width:10%; text-align:right">
+                    <input type="hidden" name="Id" id="Id" value="@(item.SolicitacaoRetornoId)" />
+                    <input type="submit" value="Retornado" />
+                </div>
+                @*<div style="display:table-cell; width:25%; text-align:right">
+                    <a href=@(item.Link)>Acessar</a>
+                </div>*@
+            </div>
+        </div>
+    }
+}
+

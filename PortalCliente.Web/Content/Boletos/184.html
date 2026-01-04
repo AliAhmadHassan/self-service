@@ -1,0 +1,439 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta http-equiv="X-UA-Compatible" content="IE=7" />
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" /> 
+	<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Untitled Page</title>
+</head>
+<body style="text-align:center">
+    <form id="form1" runat="server">
+            &nbsp;<br />
+        <table border="1" style="width: 679px; text-align: left">
+            <tr>
+                <td style="width: 485px; font-size:small;">
+					Prezado (a). @Nome@ - @Cnpj@<br />
+					Nº Contrato: @Contrato@<br />
+                </td>
+                <td style="text-align: right">
+					<img src="http://www.orcozol1.com.br/email/Logo_Uol.JPG" />
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <p style="margin: 0cm 0cm 0pt">
+                        <span style="color: black; 
+                            mso-ascii-theme-font: minor-latin; mso-bidi-theme-font: minor-bidi;
+                            mso-themecolor: text1; mso-font-kerning: 12.0pt">
+							<span style="font-size: 11pt">Identificamos a existência de débitos
+                            pendentes, junto a Universo Online, conforme abaixo:
+							</span>
+						</span>
+					</p>
+                </td>
+            </tr>
+            <tr style="font-family: Times New Roman; font-size: 12pt;">
+                <td colspan="2" style="text-align: center">
+                    <table border="1" style="width: 438px">
+                        <tr>
+                            <td style="width: 100%; text-align: left">
+                                <strong>Valor Total em Aberto</strong></td>
+                        </tr>
+                        <tr>
+                            <td style="width: 100%px; text-align: left">
+								@ValorSaldo@
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr style="font-family: Times New Roman; font-size: 12pt;">
+                <td colspan="2">
+                    <p style="margin: 0cm 0cm 0pt; text-align: justify;">
+                        <span style="font-size: 11pt">Pague este boleto na rede bancária conveniada, agência
+                                bancária, agência dos correios e casas lotéricas.<br />
+                        <span>&nbsp;
+                        </span>
+                        </span>
+                    </p>
+                    <p style="margin: 0cm 0cm 0pt; text-align: justify;">
+                        <span style="color: black; mso-ascii-theme-font: minor-latin; mso-bidi-font-family: 'Times New Roman';
+                            mso-bidi-theme-font: minor-bidi; mso-themecolor: text1; mso-font-kerning: 12.0pt">
+                            <span style="font-size: 11pt">
+                            Em casos de dúvidas entre em contato com a central de cobrança nos telefones:</span></span><span style="color: black; mso-ascii-theme-font: minor-latin; mso-bidi-font-family: 'Times New Roman';
+                            mso-bidi-theme-font: minor-bidi; mso-themecolor: text1; mso-font-kerning: 12.0pt"><span
+                                style="font-size: 11pt"><span style="mso-spacerun: yes">&nbsp;</span>(11) 3243 8915, (11) 4003 6661 ou 0800 888 25 05 horário
+                            de atendimento 2º a 6º das 08h às 21h:00, Sábado das 08h:00 às 14h:00. </span>
+                        </span>
+                        <span>
+							<span style="font-size: 11pt">&nbsp;
+								<br />
+							</span>
+								<br />
+                        </span>
+						<span style="font-size: 9pt">
+							<b>
+								<span>
+								Universo On-Line Divisão UOL
+								<br/>
+								CNPJ: 01.109.184/0004-38
+								<br/>
+								Av. Brigadeiro Faria Lima, 1384, 6°andar. 01452-002 - São Paulo/SP
+								</span>
+							</b>
+						</span>
+					</p>
+                    <p style="margin: 0cm 0cm 0pt; text-align: justify">
+                        <span style="font-size: 11pt"><b><span style="color: black; mso-ascii-theme-font: minor-latin;
+                            mso-bidi-font-family: 'Times New Roman'; mso-bidi-theme-font: minor-bidi; mso-themecolor: text1;
+                            mso-font-kerning: 12.0pt"></span></b></span>&nbsp;</p>
+                    <p style="margin: 0cm 0cm 0pt; text-align: justify">
+                        &nbsp;</p>
+                    <p style="margin: 0cm 0cm 0pt; text-align: justify">
+                        <span style="font-size: 11pt"><b><span style="color: black; mso-ascii-theme-font: minor-latin;
+                            mso-bidi-font-family: 'Times New Roman'; mso-bidi-theme-font: minor-bidi; mso-themecolor: text1;
+                            mso-font-kerning: 12.0pt">Atenção: Caso sua situação já tenha sido regularizada,
+                            por favor, desconsiderar esta correspondência. </span></b>&nbsp;</span></p>
+                </td>
+            </tr>
+        </table>
+		<table border="1" style="width: 680px; font-family: Times New Roman;">
+                <tr>
+                    <td style="width: 157px; text-align: center">
+                        <span style="font-size: 10pt">Data do Processamento</span>
+                        <br />
+                        @DtProcessamento@
+                    </td>
+                    <td style="width: 173px; text-align: center">
+                        <span style="font-size: 10pt">Vencimento</span>
+                        <br />
+                        @Vencimento@
+                    </td>
+                    <td style="text-align: center; width: 144px;">
+                        <span style="font-size: 10pt">Nº do Documento</span>
+                        <br />
+                        @NDocumento@
+                    </td>
+                    <td style="text-align: center">
+                        <span style="font-size: 10pt">Valor do Pagamento</span>
+						<br />
+                        @ValorParcela@
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="5" style="height: 21px; text-align: left">
+                        <strong>Linha Digitável:</strong> 
+						<font size="2">
+							<b>                            
+								@LinhaDigitavel@
+							</b>
+						</font>
+					</td>
+                </tr>
+                <tr>
+                    <td colspan="5" style="height: 21px; text-align: right">
+                        <span style="font-size: 7pt">Autenticação Mecânica 
+                        <br />
+                        </span>
+                        <div align="center">
+                            <font face="WingDings">"</font>&nbsp; –&nbsp; –&nbsp; –&nbsp; –&nbsp; –&nbsp; –&nbsp;
+                            –&nbsp; –&nbsp; –&nbsp; –&nbsp; –&nbsp; –&nbsp; –&nbsp; –&nbsp; –&nbsp; –&nbsp;
+                            –&nbsp; –&nbsp; –&nbsp; –&nbsp; –&nbsp; –&nbsp; –&nbsp; –&nbsp; –&nbsp; –&nbsp;
+                            –&nbsp; –&nbsp; –&nbsp; –&nbsp; –&nbsp; –&nbsp; –&nbsp; –&nbsp; –&nbsp; –&nbsp;
+                            –</div>
+                    </td>
+                </tr>
+            </table>
+            <table border="1" style="width: 680px; font-family: Times New Roman;">
+                <tr>
+                    <td align="center" colspan="10" style="font-size: large; width: 80px;">
+                        <img height="30" src="http://www.orcozol1.com.br/email/Logo%20Itau.JPG" style="font-weight: bold" />
+					</td>
+                    <td align="center" colspan="1" style="width: 80px">
+                        <font size="3">
+							<b>341-7</b>
+						</font>
+					</td>
+                    <td align="center" colspan="180">
+                        <font size="3">
+							<b>
+								@LinhaDigitavel@
+							</b>
+						</font>
+					</td>
+                </tr>
+            </table>
+            <table style="width: 680px; text-align: left;" border="1">
+                <tr>
+                    <td colspan="7">
+                        <span style="font-size: 7pt">Local de Pagamento
+                            <br />
+                        </span>
+						<font size="2">
+							<b>
+								Pagável em qualquer banco até a data de Vencimento.
+							</b>
+						</font>
+                    </td>
+                    <td style="width: 220px; text-align: Left" bgcolor="#c0c0c0">
+                        <span style="font-size: 7pt">Vencimento </span>
+                        <br />
+                        <div align="Right">
+                            <b>
+                                @Vencimento@
+                            </b>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="7">
+                        <span style="font-size: 7pt">Beneficiário
+                            <br />
+                        </span>
+						<font size="2">
+							<b>
+								Orcozol Assessoria e Consultoria de Cobranças LTDA.
+                            </b>
+						</font>
+					</td>
+                    <td style="width: 220px; text-align: Left">
+                        <span style="font-size: 7pt">Agência / Código Beneficiário </span>
+                        <br />
+                        <div align="Right">
+                            <b><font size="2">
+                                <div align="Right">
+                                    <b>
+										@AgenciaConta@
+                                    </b></div>
+                            </font></b>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 108px">
+                        <span style="font-size: 7pt">Data do Processamento
+                            <br />
+                        </span><font size="2">
+                            <div align="center">
+                                <b>                                    
+                                    @DtProcessamento@</b>
+                            </div>
+                        </font>
+                    </td>
+                    <td colspan="2">
+                        <span style="font-size: 7pt">Nº Documento
+                            <br />
+                        </span><font size="2">
+                            <div align="center">
+                                <b>
+								@NDocumento@
+                                </b></div>
+                        </font>
+                    </td>
+                    <td style="width: 76px">
+                        <span style="font-size: 7pt">Especie Doc.
+                            <br />
+                        </span><font size="2">
+                            <div align="center">
+                                <b>
+									Outros
+                                </b></div>
+                        </font>
+                    </td>
+                    <td colspan="2" style="text-align: center;">
+                        <span style="font-size: 7pt">Aceite<br />
+                        </span>
+						<font size="2">
+							<b>
+								N
+                            </b>
+						</font>
+					</td>
+                    <td style="width: 70px">
+                        <span style="font-size: 7pt">Data Documento
+                            <br />
+                        </span><font size="2">
+                            <div align="center">
+                                <b>
+								@DtDocumento@
+                                </b></div>
+                        </font>
+                    </td>
+                    <td style="width: 220px; text-align: Left">
+                        <span style="font-size: 7pt">Nosso Numero </span>
+                        <br />
+                        <font size="2">
+                            <div align="Right">
+                                <b>
+                                   @NossoNumero@
+                                </b>
+                            </div>
+                        </font>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 108px">
+                        <span style="font-size: 7pt">Uso do Banco
+                            <br />
+                        </span><font size="2">
+                            <div align="center">
+                                <b>&nbsp; </b>
+                            </div>
+                        </font>
+                    </td>
+                    <td style="width: 40px">
+                        <span style="font-size: 7pt">Carteira
+                            <br />
+                        </span><font size="2">
+                            <div align="center">
+                                <b>
+                                   175
+                                </b>
+                            </div>
+                        </font>
+                    </td>
+                    <td style="width: 40px">
+                        <span style="font-size: 7pt">Moeda
+                            <br />
+                        </span><font size="2">
+                            <div align="center">
+                                <b>
+									R$
+								</b>
+							</div>
+                        </font>
+                    </td>
+                    <td colspan="2">
+                        <span style="font-size: 7pt">Quantidade
+                            <br />
+                        </span><font size="2">
+                            <div align="center">
+                                <b>&nbsp; </b>
+                            </div>
+                        </font>
+                    </td>
+                    <td colspan="2">
+                        <span style="font-size: 7pt">Valor
+                            <br />
+                        </span><font size="2">
+                            <div align="center">
+                                <b>&nbsp; </b>
+                            </div>
+                        </font>
+                    </td>
+                    <td style="width: 220px; text-align: Left" bgcolor="#c0c0c0">
+                        <span style="font-size: 7pt">(=) Valor do Documento&nbsp; </span>
+                        <br />
+                        <font size="2">
+                            <div align="Right">
+                                <b>
+									@ValorParcela@                                    
+                                </b>
+                            </div>
+                        </font>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="7" rowspan="5" valign="top">
+                        <span style="font-size: 7pt">
+							Instruções ( Texto de responsabilidade do Beneficiário )<br />
+                        </span>
+						<font size="2">
+                            <br />
+                            <br />
+								Não receber após o vencimento.
+                            <br />
+                            <br />
+								Sr. Caixa não receber pagamento com Cheque.
+                            <br />
+                            <br />
+								Não cobrar Juros ou Multa.
+						</font>
+					</td>
+                    <td style="width: 220px; text-align: Left">
+                        <span style="font-size: 7pt">(-) Desconto / Abatimento </span>
+                        <br />
+                        <font size="2">
+                            <div align="Right">
+                                <b>* * * * * * * * * * * * * * * * * * * * * </b>
+                            </div>
+                        </font>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 220px; text-align: Left">
+                        <span style="font-size: 7pt">(-) Outras Deduções </span>
+                        <br />
+                        <font size="2">
+                            <div align="Right">
+                                <b>* * * * * * * * * * * * * * * * * * * * * </b>
+                            </div>
+                        </font>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 220px; text-align: Left">
+                        <span style="font-size: 7pt">(+) Mora / Multa </span>
+                        <br />
+                        <font size="2">
+                            <div align="Right">
+                                <b>&nbsp;</b>&nbsp;</div>
+                        </font>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 220px; text-align: Left">
+                        <span style="font-size: 7pt">(+) Outros Acréscimos </span>
+                        <br />
+                        <font size="2">
+                            <div align="Right">
+                                <b>&nbsp;</b>&nbsp;</div>
+                        </font>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 220px; text-align: Left" bgcolor="#c0c0c0">
+                        <span style="font-size: 7pt">(=) Valor Cobrado </span>
+                        <br />
+                        <font size="2">
+                            <div align="Right">
+                                <b>&nbsp;</b>&nbsp;</div>
+                        </font>
+                    </td>
+                </tr>
+            </table>   
+			<table>			
+				<tr>
+					<td align="left">
+						<font size="2">
+							Pagador: 
+						</font>
+						<br />					
+						<font size="2">
+							<span style="font-size: 7pt">
+								@Nome@ - @Cnpj@
+							</span>
+							<br />					
+						</font>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<font size="1">
+							Pagador / Avalista 
+							&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;	&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+							Codigo de Báixa:
+						</font>
+					</td>
+				</tr>
+			</table>
+			<hr align="center" color="#000000" style="width: 620px" />
+			<table border="0" cellpadding="0" cellspacing="0" width="620" style="font-size: medium">
+				<tr>
+					<td>
+						@CodigoBarras@
+					</td>
+				</tr>
+			</table>         				  
+    </form>
+</body>
+</html>

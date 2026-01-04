@@ -1,0 +1,48 @@
+﻿@model IEnumerable<PortalCliente.DTO.Opcao>
+
+@{ 
+    List<SelectListItem> horasAtendimento = new List<SelectListItem>();
+    for (int i = 8; i <= 21; i++)
+    {
+        horasAtendimento.Add(new SelectListItem() { Text = string.Format("{0} hs", i.ToString("00")), Value = i.ToString(), Selected = i == DateTime.Now.Hour ? true : false });
+    }
+}
+
+@for (int i = 0; i < Model.ToList().Count; i++)
+{
+
+    var item = Model.ToList()[i];
+    <div>
+        
+            @Html.RadioButton("opcaoId", item.OpcaoId, i == 0?true:false, new { onChange = "Yes()" })
+
+            @if (item.Plano == 1)
+            {
+                <span> À Vista:  @(item.Entrada.ToString("c2"))</span>
+            }
+            else
+            {
+                <span>Entrada de @(item.Entrada.ToString("c2")) mais @(item.Plano - 1)X de @(item.Parcela.ToString("c2"))</span>
+            }
+    </div>
+}
+
+<input type="hidden" id="propostaId" name="propostaId" value="@(Model.FirstOrDefault().PropostaId)"/>
+
+<div>
+    @Html.RadioButton("opcaoId", -1, new { onChange = "No()" }) <span>Caso as opções acima não atendam suas necessidades</span>
+    <div class="NaoAtendeNecessidades" id="NaoAtendeNecessidades">
+        <b>Favor preencher os dados abaixo que entraremos em contato.</b>
+            <table>
+                <tr>
+                    <td>DDD: </td>
+                    <td><input type="text" name="DDD" value="@(ViewBag.DDD)" style="width:30px;"/></td>
+                    <td>Numero Telefone: </td>
+                    <td><input type="text" name="NumeroTelefone" value="@(ViewBag.NumeroTelefone)" style="width:100px;" /></td>
+                </tr>
+                <tr>
+                    <td colspan="4">Melhor Horario: @Html.DropDownList("hora", horasAtendimento) <input type="submit" value="Solicitar" /></td>
+                </tr>
+            </table>
+    </div>
+</div>

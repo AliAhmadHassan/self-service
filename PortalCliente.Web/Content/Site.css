@@ -1,0 +1,122 @@
+﻿body {
+    padding-bottom: 20px;
+    min-width:600px;
+    
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+.homeDig{
+    width: 35px;
+}
+
+.homeNome{
+    font-size:large;
+    font-weight:bold;
+}
+
+.NaoAtendeNecessidades{
+    display:none;
+    margin-left:50px;
+}
+
+.panelTitulo{
+    height:70px;
+    font-weight:bold;
+    background-color:brown;
+    color:white;
+    font-size:x-large;
+    vertical-align:central;
+    line-height:70px;
+    text-align:center;
+}
+.panelLogoOrcozol{
+    text-align:center;
+}
+
+.homePanelTitulo{
+    padding-top:50px;
+    font-size:x-large;
+    font-weight:bold;
+    text-align:center;
+
+}
+
+.homePanelInstrucaoSenha{
+    padding-top:50px;
+    font-weight:bold;
+    text-align:center;
+}
+
+.form-horizontal{
+    text-align:center;
+}
+
+.homePanelRodape{
+    padding-top:50px;
+    font-weight:bold;
+    text-align:center;
+}
+
+.detalheDebitoPanelTitulo{
+    padding-top:50px;
+    padding-bottom:20px;
+    font-weight:bold;
+    font-size:x-large;
+}
+.principalPanelProposta{
+    font-weight:bold;
+    font-size:x-large;
+}
+.principalPanelRodape{
+    padding-top:40px;
+    font-weight:bold;
+}
+
+.principalPanelObrigado{
+    padding-top:40px;
+    font-weight:bold;
+    font-size:x-large;
+    text-align:center;
+}
+
+.principalPanelAcordo{
+     padding-top:20px;
+    font-weight:bold;
+    font-size:large;
+    padding-bottom:20px;
+}
+
+.principalPanelDadosAcodo{
+    padding-top:20px;
+    
+    font-size:large;
+    line-height:50px;
+    padding-bottom:20px;
+}
+
+.SolicitacaoRealizadaPanel{
+        padding-top:20px;
+    text-align:center;
+    font-size:large;
+    line-height:50px;
+    padding-bottom:20px;
+}

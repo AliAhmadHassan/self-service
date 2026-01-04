@@ -1,0 +1,79 @@
+﻿@model PortalCliente.Web.Models.Cliente
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    List<SelectListItem> digs = new List<SelectListItem>();
+
+    for (int i = 0; i <= 9; i++)
+    {
+        digs.Add(new SelectListItem() { Text = i.ToString(), Value = i.ToString() });
+    }
+}
+
+<div class="homePanelTitulo">
+    Olá @(Model.GetFirstName().ToUpper()), <br />
+    temos uma ótima oportunidade para você!
+</div>
+<div class="homePanelInstrucaoSenha">
+    Para sua segurança, digite os 4 últimos números de seu
+    @if (Int64.Parse(Model.CpfCnpj).ToString().Length > 12)
+    {<span>CNPJ.: </span>}
+    else
+    {<span>CPF.: </span> }
+</div>
+<hr />
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        @Html.HiddenFor(model => model.ClienteId)
+        <input type="hidden" name="TelId" id="TelId" value="@(ViewBag.TelId)" />
+
+        <div class="form-group">
+            <span class="homeNome"> @(Model.Nome) </span>
+        </div>
+        <div class="form-group">
+            @if (Int64.Parse(Model.CpfCnpj).ToString().Length > 12)
+            {
+                <span>CNPJ: </span> @((Int64.Parse(Model.CpfCnpj).ToString().PadLeft(15,'0')).Substring(0, 3) + "." + (Int64.Parse(Model.CpfCnpj).ToString().PadLeft(15, '0')).Substring(3, 3) + "." + (Int64.Parse(Model.CpfCnpj).ToString().PadLeft(15, '0')).Substring(6, 3) + "/" + (Int64.Parse(Model.CpfCnpj).ToString().PadLeft(15, '0')).Substring(9, 2))
+            }
+            else
+            {
+                <span>CPF: </span> @((Int64.Parse(Model.CpfCnpj)).ToString().PadLeft(11, '0').Substring(0, 3) + "." + (Int64.Parse(Model.CpfCnpj)).ToString().PadLeft(11, '0').Substring(3, 3) + "." + (Int64.Parse(Model.CpfCnpj)).ToString().PadLeft(11, '0').Substring(6, 1))
+            }
+
+            @Html.DropDownList("dig1", digs, "", new { @class = "homeDig" })
+            @Html.DropDownList("dig2", digs, "", new { @class = "homeDig" })
+            -
+            @Html.DropDownList("dig3", digs, "", new { @class = "homeDig" })
+            @Html.DropDownList("dig4", digs, "", new { @class = "homeDig" })
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Confirmar" class="btn btn-default" />
+                <br />
+                @ViewBag.Erro
+            </div>
+        </div>
+    </div>
+}
+<hr />
+<div class="homePanelRodape">
+    Esta é uma oferta exclusiva, por isso solicitamos a validação do seu @if (Int64.Parse(Model.CpfCnpj).ToString().Length > 12)
+    {<span>CNPJ</span>}
+    else
+    {<span>CPF</span> }. para visualizá-la.
+    <br />
+    <br />
+    Você está em um ambiente 100% seguro.
+    <br />
+    <br/>
+    <font size="1px">Em caso de duvidas ou problemas com o acesso, entre em contato com a Central de Atendimento<br/> 3243 8915, 4003 6661 ou 0800 888 2505 das 08h00 às 21h00 de segunda à sexta-feira </font>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

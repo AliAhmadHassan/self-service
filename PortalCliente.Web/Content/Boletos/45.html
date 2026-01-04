@@ -1,0 +1,457 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" >
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Banco Votorantim BB Avulso</title>
+</head>
+<body style="text-align: center">
+    <form id="form1" runat="server">
+        <div style="text-align: center">
+            <table style="width: 670px; text-align: left;" border="1">             
+                <tr>
+                    <td style="height: 14px; width: 630px; text-align: justify;">
+                        <font size="1">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span><span style="font-size: 10pt">
+                            A(o) Sr(a) </span>
+                            @Nome@ - @Cnpj@
+                            <span style="font-size: 10pt">, esta fatura refere-se a(s) parcela(s)
+                                do contrato </span>
+                            @Contrato@.
+                        </span></font>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="height: 15px; text-align: center; width: 630px;" bgcolor="#c0c0c0">
+                        <span style="font-size: 12pt; font-family: Arial"><strong>CARTA BOLETO</strong></span>
+                    </td>
+                </tr>
+                <tr style="font-family: Times New Roman">
+                    <td style="width: 630px; text-align: justify;">                        
+                        <span style="font-size: 10pt; font-weight: bold;">&nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;
+                            &nbsp;&nbsp;&nbsp; &nbsp; &nbsp; Prezado(a) Cliente, </span>
+                        @Nome@
+                        <font size="1" style="text-align: justify">
+                            <br />
+                            <span style="font-size: 10pt">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                &nbsp; &nbsp; &nbsp;Você esta recebendo este boleto para pagamento da(s) parcela(s)
+                                mencionada(s) abaixo, conforme sua escolha, este boleto poderá ser pago em qualquer
+                                agência bancária em todo o território nacional, não podendo sofrer atrasos, pois
+                                isto implicará na perda das condições especiais estabelecidas.
+                                <br />
+                                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+                                &nbsp; Em caso de mudança de endereço e dúvidas, pedimos para que entre em contato
+                                com a nossa Central de Atendimento ao Cliente, nos Telefones (11) 4003-6661 ou 0800 888 2505
+                                &nbsp;Fax (11) 11 3243 8915, ou compareça a Largo São Francisco nº 19&nbsp;
+                                9º Andar - Centro (Estação do Metro Anhangabaú) - São Paulo / SP, de Segunda
+                                a Sexta das 08:00 as 21:00 horas e aos Sábados das 08:00 as 14:00 horas. E-mail:
+                                <span class="MsoNormal" style="margin: 0cm 0cm 0pt"><span style="font-size: 10pt;
+                                    font-family: 'Trebuchet MS','sans-serif'"><a href="mailto:atendimento45@medinalonso.adv.br">
+                                        atendimento45@medinalonso.adv.br</a><?xml namespace="" ns="urn:schemas-microsoft-com:office:office"
+                                            prefix="o" ?><o:p></o:p>
+                                </span></span></span></font>                                
+                    </td>
+                </tr>
+                <tr style="font-family: Times New Roman">
+                    <td style="height: 80px; width: 630px; font-weight: bold; font-size: small; text-align: left;">                        
+                        <table border="0" style="width: 105%">
+                            <tr>
+                                <td style="width: 20px; text-align: right; line-height: 10px; height: 10px;">
+                                </td>
+                                <td style="width: 200px; text-align: left;; line-height: 10px; height: 10px;">
+                                    <span style="font-family: Arial; font-size: 8pt;">Numero do Contrato...........:</span>
+                                </td>
+                                <td style="width: 240px; font-family: Times New Roman; text-align: left; line-height: 10px; height: 10px;">
+                                    @Contrato@
+                                </td>
+                                <td rowspan="5">
+                                    <table style="width: 170px; border-color: Black; font-weight: normal;font-size:x-small;" border="1" cellpadding="0" cellspacing="0">
+                                        <tr>
+                                            <td>                                                
+                                                Lembre-se !  Mantenha seu pagamento em dia para manter as condições estabelecidas.
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr style="font-family: Times New Roman">
+                                <td style="text-align: right; line-height: 10px; height: 10px;">
+                                </td>
+                                <td style="text-align: left; line-height: 10px; height: 10px;">
+                                    <span style="font-family: Arial; font-size: 8pt;">Quitação da(s) Parcela(s)...:</span>
+                                </td>
+                                <td style="text-align: left; line-height: 10px; height: 10px;">
+                                    @ParcelaPlano@
+                                </td>
+                            </tr>
+                            <tr style="font-family: Times New Roman">
+                                <td style="text-align: right; line-height: 10px; height: 10px;">
+                                </td>
+                                <td style="text-align: left; line-height: 10px; height: 10px;">
+                                    <span style="font-size: 8pt; font-family: Arial">Vencimento da Parcela......:</span></td>
+                                <td style="text-align: left; line-height: 10px; height: 10px;">
+                                    @Vencimento@</td>
+                            </tr>
+                            <tr style="font-family: Times New Roman">
+                                <td style="text-align: right; line-height: 10px; height: 10px;">
+                                </td>
+                                <td style="text-align: left; line-height: 10px; height: 10px;">
+                                    <span style="font-size: 8pt; font-family: Arial">Valor para Pagamento.......:</span></td>
+                                <td style="text-align: left; font-size: 8pt; line-height: 10px; height: 10px;">
+                                    R$
+                                    @ValorParcela@
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="4">
+                                    <span style="font-weight: normal; font-size: 8pt; font-family: Arial">
+                                        <strong style="font-size: 10pt">
+                                            Medina Alonso Advogados Associados<br />
+                                        </strong>Rua Benjamin Constant, 190, CEP 01005-000, São Paulo/SP<br />
+                                    CNPJ 07.859.517/0001-80</span></td>
+                            </tr>
+                        </table>
+                        
+                    </td>
+                </tr>
+            </table>
+			<table border="1" style="width: 670px">
+                <tr>
+                    <td align="center" colspan="2">
+                        <img src="http://www.orcozol1.com.br/email/lbb.jpg" alt="Banco do Brasil" />
+                    </td>
+                    <td align="center" width="100px">
+                        <font size="4"><b>001-9&nbsp;</b></font>
+                    </td>
+                    <td align="center" width="480px">
+                        <font size="3"><b>
+                            @LinhaDigitavel@</b>
+                        </font>
+                    </td>
+                </tr>
+            </table>
+            <table border="1" style="width: 670px;">                
+				<tr>
+                    <td colspan="5" style="">
+                        <div style="text-align: left;">
+                            <span style="font-size: 6pt">Nome do Pagador</span>
+                        </div>
+                        <div style="text-align: left;">
+                            @Nome@
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align: left; width: 200px">
+                        <span style="font-size: 6pt">Nosso Número </span>
+                        <br />
+                        @NossoNumero@
+                    </td>
+                    <td style="text-align: left; width: 150px">
+                        <span style="font-size: 6pt">Nr do Documento </span>
+                        <br />
+                        @NDocumento@
+                    </td>
+                    <td style="text-align: left; width: 100px">
+                        <span style="font-size: 6pt">Data de Vencimento </span>
+                        <br />
+                        @Vencimento@
+                    </td>
+                    <td style="text-align: left; width: 100px">
+                        <span style="font-size: 6pt">Valor do Documento </span>
+                        <br />
+                        @ValorParcela@
+                    </td>
+                    <td style="text-align: left; width: 100px">
+                        <span style="font-size: 6pt">(=) Valor Pago </span>
+                        <br />
+						&nbsp;
+					</td>
+                </tr>
+<tr>
+                    <td colspan="5" style="">
+                        <div style="text-align: left;">
+                            <span style="font-size: 6pt">Nome do Beneficiário/CNPJ/CPF/Endereço/Cidade/UF/CEP </span>
+                        </div>
+                        <div style="text-align: left;">
+                            <span style="font-family: Arial; font-size: 7pt;"><strong>BV Financeira - </strong>
+                                Avenida das Nações Unidas, nº 14.171, Torre A, 8º andar, Conjunto 82, Vila Gertrudes,
+                                CEP 04794-000, São Paulo/SP <br/> CNPJ 01.149.953/0001-89 </span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="1" style="text-align: left;">
+                        <span style="font-size: 6pt">Agência/Código do Beneficiário </span>
+                        <br />
+                        @AgenciaConta@
+                    </td>
+                    <td colspan="4" style="width: 600px">
+                        <span style="font-size: 6pt">Autenticação Mecânica </span>
+                        <br />
+                        <div>&nbsp;</div>
+                    </td>
+                </tr>
+            </table>
+            <table border="1" style="width: 670px">
+                <tr>
+                    <td align="right" colspan="72">
+                        <div align="center">
+                            <font face="WingDings">"</font>&nbsp; –&nbsp; –&nbsp; –&nbsp; –&nbsp; –&nbsp; –&nbsp;
+                            –&nbsp; –&nbsp; –&nbsp; –&nbsp; –&nbsp; –&nbsp; –&nbsp; –&nbsp; –&nbsp; –&nbsp;
+                            –&nbsp; –&nbsp; –&nbsp; –&nbsp; –&nbsp; –&nbsp; –&nbsp; –&nbsp; –&nbsp; –&nbsp;
+                            –&nbsp; –&nbsp; –&nbsp; –&nbsp; –&nbsp; –&nbsp; –&nbsp; –&nbsp; –&nbsp; –&nbsp;
+                            –</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center" colspan="2">
+                        <img src="http://www.orcozol1.com.br/email/lbb.jpg" alt="Banco do Brasil" />
+                    </td>
+                    <td align="center" width="100px">
+                        <font size="4"><b>001-9&nbsp;</b></font>
+                    </td>
+                    <td align="center" width="480px">
+                        <font size="3"><b>
+                            @LinhaDigitavel@</b>
+                        </font>
+                    </td>
+                </tr>
+            </table>
+            <table style="width: 670px; text-align: left;" border="1">
+                <tr>
+                    <td colspan="7" style="vertical-align: top;">
+                        <span style="font-size: 7pt">Local de Pagamento
+                            <br />
+                        </span><font size="2"><b>
+                            Pagável em qualquer banco até a data de Vencimento. 
+                        </b></font>
+                    </td>
+                    <td style="width: 220px; text-align: Left" bgcolor="#FFFF00">
+                        <span style="font-size: 7pt">Data de Vencimento </span>
+                        <br />
+                        <div align="Right">
+                            <b>
+                                @Vencimento@
+                            </b>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="7">
+                        <span style="font-size: 6pt">Nome do Beneficiário/CNPJ/CPF/Endereço/Cidade/UF/CEP
+                            <br />
+                        </span>                        
+                            <span style="font-family: Arial; font-size: 7pt;"><strong>BV Financeira - </strong>
+                                Avenida das Nações Unidas, nº 14.171, Torre A, 8º andar, Conjunto 82, Vila Gertrudes <br/>
+                                CEP 04794-000, São Paulo/SP - CNPJ 01.149.953/0001-89 </span>                        
+                    </td>
+                    <td style="width: 220px; text-align: Left;">
+                        <span style="font-size: 7pt">Agência / Código do Beneficiário </span>
+                        <br />
+                        <div align="Right">
+                            <b><font size="2">
+                                <div align="Right">
+                                    <b>
+                                        @AgenciaConta@</b></div>
+                            </font></b>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="1" style="width: 200px;">
+                        <div style="font-size: 7pt">Data do documento
+                           
+                        </div><font size="2">
+                            <div align="center">
+                                <b>
+                                    @DtDocumento@ 
+                                    &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; </b>
+                            </div>
+                        </font>
+                    </td>
+                    <td colspan="2" width="150px">
+                        <div style="font-size: 7pt">Nr do Documento                          
+                        </div><font size="2">
+                            <div align="center">
+                                <b>
+                                    @NDocumento@</b></div>
+                        </font>
+                    </td>
+                    <td style="width: 100px;">
+                        <div style="font-size: 7pt">Espécie Doc.
+                        </div><font size="2">
+                            <div align="center">
+                                <b>
+                                    05</b></div>
+                        </font>
+                    </td>
+                    <td colspan="2" style="width: 64px;">
+                        <div style="font-size: 7pt">Aceite
+                           
+                        </div><font size="2">
+                            <div align="center">
+                                <b>
+                                    N</b></div>
+                        </font>
+                    </td>
+                    <td style="width: 100px;">
+                        <div style="font-size: 7pt">Data Process.                            
+                        </div><div align="center" style="font-size: 8pt">
+                                <b>
+                                    @DtProcessamento@</b></div>
+                        </font>
+                    </td>
+                    <td style="width: 220px; text-align: Left;">
+                        <div style="font-size: 7pt">Nosso Numero </div>
+                        <font size="2">
+                            <div align="Right">
+                                <b>
+                                  @NossoNumero@
+                                </b>
+                            </div>
+                        </font>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 108px; background-color: Yellow;">
+                        <span style="font-size: 7pt">Uso do Banco
+                            <br />
+                        </span><font size="2">
+                            <div align="center">
+                                <b>&nbsp; </b>
+                            </div>
+                        </font>
+                    </td>
+                    <td style="width: 40px;">
+                        <span style="font-size: 7pt">Carteira
+                            <br />
+                        </span><font size="2">
+                            <div align="center">
+                                <b>
+                                    018
+                                </b>
+                            </div>
+                        </font>
+                    </td>
+                    <td style="width: 40px;">
+                        <span style="font-size: 7pt">Espécie&nbsp;<br />
+                        </span><font size="2">
+                            <div align="center">
+                                <b>
+                                    R$</b></div>
+                        </font>
+                    </td>
+                    <td colspan="2">
+                        <span style="font-size: 7pt">Quantidade
+                            <br />
+                        </span><font size="2">
+                            <div align="center">
+                                <b>&nbsp; </b>
+                            </div>
+                        </font>
+                    </td>
+                    <td colspan="2" style="width: 64px;">
+                        <span style="font-size: 7pt">Valor
+                            <br />
+                        </span><font size="2">
+                            <div align="center">
+                                <b>&nbsp; </b>
+                            </div>
+                        </font>
+                    </td>
+                    <td style="width: 220px; text-align: Left" bgcolor="#FFFF00">
+                        <span style="font-size: 7pt">(=) Valor do Documento&nbsp; </span>
+                        <br />
+                        <font size="2">
+                            <div align="Right">
+                                <b>
+                                    <div align="right">
+                                        <b>
+                                            @ValorParcela@</b></div>
+                                </b>
+                            </div>
+                        </font>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="7" rowspan="5" valign="top">
+                        <span style="font-size: 7pt">Informações de responsabilidade do beneficiário
+                            <br />
+                        </span><font size="2">
+                            PAGAVEL SOMENTE ATE O VENCIMENTO.
+							<br/>
+							BOLETO REFERENTE AS PARCELAS: @ParcelaPlano@
+							<br/>
+							<br/>
+							CONTRATO NO: @Contrato@ .
+                        </font>
+                    </td>                   
+                </tr>
+                <tr>
+                    <td style="width: 220px; text-align: Left;">
+                        <span style="font-size: 7pt">(-) Desconto / Abatimento </span>
+                        <br />
+                        <font size="2">
+                            <div align="Right">
+                                <b>&nbsp;</b>&nbsp;
+                            </div>
+                        </font>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 220px; text-align: Left;">
+                        <span style="font-size: 7pt">(+) Juros/ Multa </span>
+                        <br />
+                        <font size="2">
+                            <div align="Right">
+                                <b>&nbsp;</b>&nbsp;
+                            </div>
+                        </font>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 220px; text-align: Left" bgcolor="#FFFF00">
+                        <span style="font-size: 7pt">(=) Valor Pago </span>
+                        <br />
+                        <font size="2">
+                            <div align="Right">
+                                <b>&nbsp;</b>&nbsp;
+                            </div>
+                        </font>
+                    </td>
+                </tr>
+            </table>
+            <div style="font-size: 7pt">
+                <table style="width: 670px; text-align: left; border-spacing: 0px; letter-spacing: 0px;
+                    word-spacing: 0px; line-height: 12px; margin-bottom: 0px; padding-bottom: 0px;
+                    padding-top: 0px;">
+                    <tr>
+                        <td>
+                            Nome do Beneficiário/CNPJ/CPF/Endereço/Cidade/UF/CEP
+                            <br/>                           
+								@Nome@ - @Cnpj@                         
+                            <br />
+                            <font size="1">Pagador / Avalista &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                &nbsp; &nbsp; &nbsp;
+                                <hr align="left" color="#000000" style="width: 645px; height: 1px" />
+                                <span id="lblTextoPagadoAvalista" style="float: right;">Autênticação mecânica - Ficha
+                                    de Compensação </span>
+                                <table border="0" cellpadding="0" cellspacing="0" width="630">
+                                    <tr>
+                                        <td>
+                                            @CodigoBarras@ 
+                                        </td>
+                                    </tr>
+                                </table>
+                            </font>
+                        </td>
+                    </tr>
+                </table>
+            </div>           
+        </div>
+    </form>
+</body>
+</html>

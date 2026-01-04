@@ -1,0 +1,31 @@
+﻿<div class="principalPanelObrigado">
+    Obrigado @(((PortalCliente.Web.Models.Cliente)Session["clienteModel"]).GetFirstName())! 
+</div>
+
+<div class="principalPanelAcordo">
+    O Acordo foi formalizado conforme condições abaixo:
+</div>
+
+<div class="principalPanelDadosAcodo">
+    @if (ViewBag.Plano == 1)
+    {
+        <span>Data de Pagamento: @(((DateTime)ViewBag.Vencimento).ToString("dd/MM/yyyy"))</span><br />
+        <span>À Vista:  @(ViewBag.Entrada.ToString("c2"))</span>
+    }
+    else
+    {
+        <span>Data da Entrada: @(((DateTime)ViewBag.Vencimento).ToString("dd/MM/yyyy"))</span><br />
+        <span>Valor da Entrada: @(ViewBag.Entrada.ToString("c2")) </span><br />
+        <span>@(ViewBag.Plano - 1) parcelas de @(ViewBag.Parcela.ToString("c2")), todo dia @(((DateTime)ViewBag.Vencimento).Day.ToString("00")) de cada mês.</span>
+    }
+</div>
+
+<h3>Download do Boleto</h3>
+
+<a href="@(ViewBag.path)" target="_blank">
+    <img src="~/Content/Image/Icone@(ViewBag.extensao).jpg" height="100"/></a>
+
+<div class="principalPanelRodape">
+    Caso ao receber este boleto o pagamento já tenha sido efetuado, por favor desconsiderar, comunicando-nos imediatamente na Central de Atendimento 3243 8915, 4003 6661 ou 0800 888 2505 das 08h00 às 21h00 de segunda à sexta-feira
+
+</div>

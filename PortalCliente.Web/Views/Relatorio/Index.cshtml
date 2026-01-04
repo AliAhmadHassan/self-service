@@ -1,0 +1,272 @@
+﻿@model IEnumerable<PortalCliente.Web.Models.Relatorio>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .entire-menu {
+        position: absolute;
+        margin-left: -5%;
+        margin-top: -40px;
+        width: 100%;
+    }
+
+    .hamburguer {
+        width: 20px;
+        height: 20px;
+        display: block;
+        position: relative;
+        background: none;
+        margin: 0 0 10px 0;
+    }
+
+        .hamburguer:after, .hamburguer:before, .hamburguer span, .hamburguer label {
+            content: ' ';
+            display: block;
+            width: 100%;
+            height: 4px;
+            background: black;
+            left: 0;
+            position: absolute;
+            -webkit-transition: all 300ms ease-in-out;
+            transition: all 300ms ease-in-out;
+        }
+
+        .hamburguer:before {
+            top: 0;
+        }
+
+        .hamburguer:after {
+            bottom: 0;
+        }
+
+        .hamburguer:focus {
+            outline: none;
+        }
+
+        .hamburguer label {
+            width: 100%;
+            height: 100%;
+            background: none;
+            cursor: pointer;
+            z-index: 1000;
+        }
+
+        .hamburguer span {
+            top: 8px;
+        }
+
+    #change-hamburguer {
+        display: none;
+    }
+
+        #change-hamburguer:checked ~ .hamburguer:before, #change-hamburguer:checked ~ .hamburguer:after {
+            top: 10px;
+            margin-top: -10%;
+        }
+
+        #change-hamburguer:checked ~ .hamburguer:before {
+            -ms-transform: rotate(-45deg);
+            -webkit-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+        }
+
+        #change-hamburguer:checked ~ .hamburguer:after {
+            -ms-transform: rotate(45deg);
+            -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+        }
+
+        #change-hamburguer:checked ~ .hamburguer span {
+            opacity: 0;
+        }
+
+        #change-hamburguer:checked ~ .menu {
+            max-height: 200px;
+        }
+
+    .menu {
+        max-height: 0;
+        height: auto;
+        background: #000;
+        -webkit-transition: all 300ms ease-in-out;
+        transition: all 300ms ease-in-out;
+        overflow: hidden;
+        font-family: sans-serif;
+        font-weight: 400;
+        font-size: 13px;
+        width: 15%;
+    }
+
+        .menu a {
+            text-decoration: none;
+            color: #fff;
+            padding: 5px 10px;
+            display: block;
+            text-transform: uppercase;
+            border-left: 5px solid #000;
+        }
+
+            .menu a:hover {
+                border-left: 5px solid #e57373;
+                color: #e57373;
+                background: #222;
+            }
+</style>
+<link href="~/Content/Menu.css" rel="stylesheet" />
+<div class="entire-menu">
+    <input type="checkbox" id="change-hamburguer" />
+    <a class="hamburguer" href="#">
+        <span></span>
+        <label for="change-hamburguer"></label>
+    </a>
+    <div class="menu">
+        <a href="//192.168.20.175/Lote">Lote</a>
+        <a href="//192.168.20.175/Log">Log</a>
+        <a href="//192.168.20.175/Mailling">Mailling</a>
+        <a href="//192.168.20.175/Relatorio">Relatorio</a>
+        <a href="//192.168.20.175/SolicitacaoRetorno">Solicitação Retorno</a>
+    </div>
+</div>
+
+<br />
+
+<script type="text/javascript">
+    function Filtrar() {
+        var protocolo = window.location.protocol;
+        var root_site = window.location.host;
+        var uri = protocolo + '//' + root_site;
+        window.location.href = uri + '/Relatorio/Filtrar?status=0&MaillingId=' + $('#ComboBox').val();
+    }
+</script>
+
+<h2>Relatorio Mailling</h2>
+
+@Html.DropDownList("ComboBox", (SelectList)ViewBag.DropDownValues)
+<input type="submit" value="Confirmar" class="btn btn-default" onclick="Filtrar()" />
+<br /><br /><br />
+<div style="display:table; width:100%; text-align:center">
+    <div style="display:table-row; width:100%; font-weight:bold">
+        <div style="display:table-cell; width:100px; border-bottom: solid 1px lightgrey">
+            ID
+        </div>
+        <div style="display:table-cell; width:320px; border-bottom: solid 1px lightgrey">
+            Data Arquivo
+        </div>
+        @*<div style="display:table-cell; width:320px; border-bottom: solid 1px lightgrey">
+                Vencimento
+            </div>*@
+        <div style="display:table-cell; width:900px; border-bottom: solid 1px lightgrey">
+            Nome Arquivo
+        </div>
+        <div style="display:table-cell; width:350px; border-bottom: solid 1px lightgrey">
+            Qtde Clientes
+        </div>
+        <div style="display:table-cell; width:350px; border-bottom: solid 1px lightgrey">
+            Qtde Acessou
+        </div>
+        <div style="display:table-cell; width:350px; border-bottom: solid 1px lightgrey">
+            Qtde Logou
+        </div>
+        <div style="display:table-cell; width:500px; border-bottom: solid 1px lightgrey">
+            Qtde Solicitou Retorno
+        </div>
+        <div style="display:table-cell; width:500px; border-bottom: solid 1px lightgrey">
+            Qtde Gerou Boleto
+        </div>
+    </div>
+
+    @if (Model != null)
+    {
+        foreach (var item in Model)
+        {
+            <div style="display:table-row; width:100%; font-weight:bold">
+                <div style="display:table-cell;">
+                    @(item.MailingId)
+                </div>
+                <div style="display:table-cell;">
+                    @(item.Data.ToString("dd/MM/yyyy"))
+                </div>
+                @*<div style="display:table-cell;">
+                        @(item.Vencimento.ToString("dd/MM/yyyy"))
+                    </div>*@
+                <div style="display:table-cell;">
+                    @(item.NomeArquivo)
+                </div>
+                <div style="display:table-cell;">
+                    <a href="@Url.Action("Filtrar", new { controller = "Relatorio", action = "Filtrar", status = 1, MaillingId = item.MailingId })" class="btn btn-group">
+                        @(item.QntClientes)
+                    </a>
+                </div>
+                <div style="display:table-cell;">
+                    <a href="@Url.Action("Filtrar", new { controller = "Relatorio", action = "Filtrar", status = 2, MaillingId = item.MailingId })" class="btn btn-group">
+                        @(item.QntAcessou)
+                    </a>
+                </div>
+                <div style="display:table-cell;">
+                    <a href="@Url.Action("Filtrar", new { controller = "Relatorio", action = "Filtrar", status = 3, MaillingId = item.MailingId })" class="btn btn-group">
+                        @(item.QntLogou)
+                    </a>
+                </div>
+                <div style="display:table-cell;">
+                    <a href="@Url.Action("Filtrar", new { controller = "Relatorio", action = "Filtrar", status = 4, MaillingId = item.MailingId })" class="btn btn-group">
+                        @(item.QntRetorno)
+                    </a>
+                </div>
+                <div style="display:table-cell;">
+                    <a href="@Url.Action("Filtrar", new { controller = "Relatorio", action = "Filtrar", status = 5, MaillingId = item.MailingId })" class="btn btn-group">
+                        @(item.QntGerouBoleto)
+                    </a>
+                </div>
+            </div>
+        }
+    }
+    @*<div style="display:table-row; width:100%; font-weight:bold">
+            <div style="display:table-cell; border-top: 1px solid lightgray">
+            </div>
+            <div style="display:table-cell; border-top: 1px solid lightgray">
+            </div>
+            <div style="display:table-cell; border-top: 1px solid lightgray">
+            </div>
+            <div style="display:table-cell; border-top: 1px solid lightgray">
+            </div>
+            <div style="display:table-cell; border-top: 1px solid lightgray">
+                <a href="@Url.Action("Filtrar", new { controller = "Relatorio", action = "Filtrar", status = 1, MaillingId = ViewBag.MaillingId })" class="btn btn-group">
+                    @(ViewBag.TotalClientes)
+                </a>
+            </div>
+            <div style="display:table-cell; border-top: 1px solid lightgray">
+                <a href="@Url.Action("Filtrar", new { controller = "Relatorio", action = "Filtrar", status = 2, MaillingId = ViewBag.MaillingId })" class="btn btn-group">
+                    @(ViewBag.TotalAcessou)
+                </a>
+            </div>
+            <div style="display:table-cell; border-top: 1px solid lightgray">
+                <a href="@Url.Action("Filtrar", new { controller = "Relatorio", action = "Filtrar", status = 3, MaillingId = ViewBag.MaillingId })" class="btn btn-group">
+                    @(ViewBag.TotalLogou)
+                </a>
+            </div>
+            <div style="display:table-cell; border-top: 1px solid lightgray">
+                <a href="@Url.Action("Filtrar", new { controller = "Relatorio", action = "Filtrar", status = 4, MaillingId = ViewBag.MaillingId })" class="btn btn-group">
+                    @(ViewBag.TotalRetorno)
+                </a>
+            </div>
+            <div style="display:table-cell; border-top: 1px solid lightgray">
+                <a href="@Url.Action("Filtrar", new { controller = "Relatorio", action = "Filtrar", status = 5, MaillingId = ViewBag.MaillingId })" class="btn btn-group">
+                    @(ViewBag.TotalGerouBoleto)
+                </a>
+            </div>
+        </div>*@
+</div>
+<br />
+@if (ViewBag.Link != null)
+{
+    <div style="text-align:center">
+        <span><b>Resultado:</b></span>
+        <br />
+        <a href="@(ViewBag.Link)" target="_blank">@(ViewBag.Link)</a>
+    </div>
+}
+
+
+
